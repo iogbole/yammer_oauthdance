@@ -1,0 +1,41 @@
+
+
+
+<h2>Yammer users from angular</h2>
+
+Filter Jedi  : &nbsp; &nbsp; <input type="text" ng-model="yamUser">  &nbsp; &nbsp;&nbsp; &nbsp;  <br>
+    <div ng-controller="y_usersController">
+        
+        {{message}}
+        
+       <div class="datagrid">
+			<table id="tblExport"  >
+				<thead valign="top">
+					<tr>
+						<th>userID</th>
+						<th>Full Name</th>
+						<th>NetworkID</th>
+						<th>Activation Date</th>
+						<th>Face</th>
+
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr ng-repeat ="user in users | filter:yamUser" ng-class-even="'alt'">
+						<td> {{ user.id}}</td>
+						<td> {{ user.full_name }}</td>
+						<td> {{ user.network_id }}</td>
+						<td> {{ user.activated_at}}</td>
+						<td> <img src= "{{ user.mugshot_url}}"/></td>
+					</tr>
+				</tbody>
+			</table>
+</div>
+		</div>
+
+
+
+
+<br>
+

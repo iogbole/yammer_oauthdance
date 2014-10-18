@@ -1,0 +1,30 @@
+
+<p></p>
+<p></p><p></p>
+<h2>Yammer users from Rails</h2>
+       <div class="datagrid">
+			<table id="tblExport"  >
+				<thead valign="top">
+					<tr>
+						<th>userID</th>
+						<th>Full Name</th>
+						<th>NetworkID</th>
+						<th>Activation Date</th>
+						<th>Face</th>
+
+					</tr>
+				</thead>
+				<tbody>
+ <% @response.each do |y_data| %>
+					<tr class="<%= cycle('', 'alt') -%>">
+                        <td>  <%= y_data["id"] %></td>
+						<td> <%= y_data["full_name"] %></td>
+                        <td>  <%= y_data["network_id"] %></td>
+						<td>  <%= y_data["activated_at"] %></td>
+						<td>    <img src= '<%= y_data["mugshot_url"] %>'/></td>
+					</tr>
+                     <% end %> 
+				</tbody>
+			</table>
+</div>
+		
