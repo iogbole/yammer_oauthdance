@@ -19,18 +19,10 @@ yApp.factory('yFactory', function($resource) {
 		);
 });
 
-
-
-
 yApp.controller('y_usersController', function($scope, yFactory) {
 
-	$scope.users = yFactory.query(); 
-    $scope.pageReload = function(){window.location.reload();};
-
-  //window.location.reload();
-
-		
-});
+$scope.users = yFactory.query(); 
+ });
 
 
 // learning global variables
@@ -43,8 +35,6 @@ yApp.controller('reloadRoute', function($scope,$window) {
    $window.location.reload();
       
 });
-
-
 
 
 /***
