@@ -16,17 +16,22 @@ class OauthdanceController < ApplicationController
       token = get_token(APP_ID, APP_SECRET, code)
     end
 
-      cookies[:y_new_token] = token
+    #cookies[:y_new_token] = token
+    session[:y_new_token] = token
     puts  "token is : #{token} "
 
     # render :text => token
-    redirect_to :root
+    redirect_to "/ng"
       
   end
 
   def get_token(client_id, client_secret, code)
     j_response = HTTParty.get(TOKEN_URL % [client_id, client_secret, code])
+    if !j_response.blank?
     json     = JSON.parse(j_response.body)
     json['access_token']['token']
+    else
+       redirect_to "/login"   
+  end
   end
 end

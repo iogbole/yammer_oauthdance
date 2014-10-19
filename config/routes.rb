@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     match '/ng' => 'pages#ng',  via: [:get]
     
     #api endpoints    
-match '/api/vi/yamusers' => 'yamusers#index',  via: [:get]
+match '/api/v1/yamusers' => 'yamusers#index',  via: [:get]
   
     
     

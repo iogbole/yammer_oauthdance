@@ -1,5 +1,5 @@
 /**
-* Created with oauthDance.
+* Created with Codio.io
 * User: iogbole
 * Date: 2014-10-16
 * Time: 03:28 PM
@@ -7,7 +7,48 @@
 */
 
 var app = angular.module('app', ['yApp']);
+var yApp = angular.module('yApp', ['ngResource'])
 
+
+yApp.factory('yFactory', function($resource) {
+    return $resource('/api/v1/yamusers/:Id.json',
+	
+		{ Id:'@_id' }, 
+		
+		{ update: { method: 'PUT' }}
+		);
+});
+
+
+
+
+yApp.controller('y_usersController', function($scope, yFactory) {
+
+	$scope.users = yFactory.query(); 
+    $scope.pageReload = function(){window.location.reload();};
+
+  //window.location.reload();
+
+		
+});
+
+
+// learning global variables
+yApp.run(function ($rootScope) {
+    $rootScope.message = ''; //global variable
+});
+
+yApp.controller('reloadRoute', function($scope,$window) {   
+    //$scope.reloadRoute = function() 
+   $window.location.reload();
+      
+});
+
+
+
+
+/***
+ //no longer using cookies for security reasons. rails session is the way to go
 var yApp = angular.module('yApp', ['ngResource', 'ngCookies'])
 
 yApp.factory('yFactory', function($resource, $cookies, $http) {
@@ -34,14 +75,4 @@ var y_token =  $cookies.y_new_token;
 
 });
 
-
-yApp.controller('y_usersController', function($scope,yFactory) {
-	
-		$scope.users = yFactory.query(); 
-});
-
-
-// learning global variables
-yApp.run(function ($rootScope) {
-    $rootScope.message = ''; //global variable
-});
+**/

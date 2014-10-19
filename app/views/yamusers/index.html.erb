@@ -1,7 +1,7 @@
 
 <p></p>
 <p></p><p></p>
-<h2>Yammer users from Rails</h2>
+<h2>This is Rails view. See angularJs view <a href="/ng"> here </a>  </h2>
        <div class="datagrid">
 			<table id="tblExport"  >
 				<thead valign="top">
@@ -15,7 +15,7 @@
 					</tr>
 				</thead>
 				<tbody>
- <% @response.each do |y_data| %>
+ <% @yamusers.each do |y_data| %>
 					<tr class="<%= cycle('', 'alt') -%>">
                         <td>  <%= y_data["id"] %></td>
 						<td> <%= y_data["full_name"] %></td>

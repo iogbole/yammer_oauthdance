@@ -1,6 +1,4 @@
-
-json.yamusers do |yamusers|
+json.array!(@yamusers) do |user|
+  json.extract! user
  
 end
-
-
